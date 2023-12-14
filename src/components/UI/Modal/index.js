@@ -60,10 +60,26 @@ export default function Index() {
         e.preventDefault();
         fetchData();
         if (data){
-            alert('Votre compte a bien été créé !')
-            setIsOpen(false);
+          alert('Merci pour votre confiance !')
         }
+        // else (error)
+        // console.log(error);
     }
+
+    //A UTILISER QUAND LE SMTP MARCHE (EMAIL)
+    // const submitForm = (e) => {
+    //     e.preventDefault();
+    //     fetchData();
+    //     if (error){
+    //         console.log(error);
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     if (data.success == true){
+    //         alert('Merci pour votre confiance !')
+    //     }
+    // }, [data]);
 
     return (
         <>
@@ -113,7 +129,6 @@ export default function Index() {
                     </div>
                 </Modal.Body>
             </Modal>    
-
         </>
     );
     
