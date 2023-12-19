@@ -57,26 +57,28 @@ console.log(userForm)
         })
     }
 
-    // A UTILISER QUAND LE SMTP MARCHE (EMAIL)
     const submitForm = async (e) => {
+
         e.preventDefault();
 
         const data = await fetch("http://localhost:3030/api/products/interested",{
-              method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: `productId=${userForm.productId}&fname=${userForm.fname}&lname=${userForm.lname}&email=${userForm.email}`,
-            }
-          );
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `productId=${userForm.productId}&fname=${userForm.fname}&lname=${userForm.lname}&email=${userForm.email}`,
+        });
 
-          const body = await data.json();
+        const body = await data.json();
 
-          if (body.error) {
-            console.error(body.error);
-          }
-          if (body){
+        if (body.error) {
+        console.error(body.error);
+        }
+        if (body){
+            alert("merci de votre intérêt !");
+
             console.log('ok reussit')
+
             setOpenModal(!openModal)
-          }
+        }
 
     }
 
